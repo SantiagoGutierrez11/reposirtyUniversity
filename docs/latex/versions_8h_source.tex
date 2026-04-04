@@ -1,0 +1,52 @@
+\doxysection{versions.\+h}
+\hypertarget{versions_8h_source}{}\label{versions_8h_source}\mbox{\hyperlink{versions_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ VERSIONS\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ VERSIONS\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sha256_8h}{sha256.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ COMMENT\_SIZE\ 80\ }}
+\DoxyCodeLine{00024\ \textcolor{comment}{//Se\ realiza\ un\ cambio\ de\ HASH\_SIZE\ a\ 65\ ya\ que\ se\ pretende\ manejar}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ el\ hash\ como\ una\ cadena\ de\ caracteres\ hexadecimal\ en\ vez\ de\ guardalo}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ como\ bits,\ facilita\ la\ lectura,\ escritura\ y\ comparacion\ de\ los\ hash,\ ademas\ de\ que\ el\ espacio\ adicional\ es\ minimo\ \ \ \ }}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ HASH\_SIZE\ 65\ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ VERSIONS\_DB\ "{}versions.db"{}\ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ VERSIONS\_DIR\ "{}.versions"{}\ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ VERSIONS\_DB\_PATH\ VERSIONS\_DIR\ "{}/"{}\ VERSIONS\_DB\ }}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ EQUALS(s1,\ s2)\ (strcmp(s1,\ s2)\ ==\ 0)\ }}
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{versions_8h_ad738718188ca53cb968f04310a1fb74c}{\_\_attribute\_\_}}((aligned(512)))\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{char}\ filename[PATH\_MAX];\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{char}\ hash[\mbox{\hyperlink{versions_8h_ad6074dd11ab3c97c8135c43aab03ae95}{HASH\_SIZE}}];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{char}\ comment[\mbox{\hyperlink{versions_8h_acc5088d870a0ea26098e042f6c394065}{COMMENT\_SIZE}}];\ \ \ \ }
+\DoxyCodeLine{00046\ \}\mbox{\hyperlink{versions_8h_a69997bf69be6300f1ac63935ddc2964a}{file\_version}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4}{VERSION\_ERROR}},\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e}{VERSION\_CREATED}},\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf}{VERSION\_ADDED}},\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250}{VERSION\_ALREADY\_EXISTS}},\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff}{FILE\_ADDED}},\ \textcolor{comment}{/*<!\ Archivo\ adicionado\ \ */}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{/*\ ..\ */}}
+\DoxyCodeLine{00058\ \}\mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\_code}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00068\ \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\_code}}\ \mbox{\hyperlink{versions_8h_ad4fe92ebc2a2ffbf17636f30a5499951}{add}}(\textcolor{keywordtype}{char}\ *\ filename,\ \textcolor{keywordtype}{char}\ *\ comment);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{versions_8h_aaf76b8ab07b7b563a4984e30dc805f5e}{list}}(\textcolor{keywordtype}{char}\ *\ filename);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{versions_8h_a65a04ca2b6a30e8fb6b0c81744b1d357}{get}}(\textcolor{keywordtype}{char}\ *\ filename,\ \textcolor{keywordtype}{int}\ version);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

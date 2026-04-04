@@ -21,7 +21,10 @@
 #include "sha256.h"
 
 #define COMMENT_SIZE 80 /** < Longitud del comentario */
-#define HASH_SIZE 256 /**< Longitud del hash incluyendo NULL*/
+//Se realiza un cambio de HASH_SIZE a 65 ya que se pretende manejar
+// el hash como una cadena de caracteres hexadecimal en vez de guardalo
+// como bits, facilita la lectura, escritura y comparacion de los hash, ademas de que el espacio adicional es minimo	
+#define HASH_SIZE 65 /**< Longitud del hash incluyendo NULL*/
 
 #define VERSIONS_DB "versions.db" /**< Nombre de la base de datos de versiones. */
 #define VERSIONS_DIR ".versions" /**< Directorio del repositorio. */

@@ -1,0 +1,84 @@
+\doxysection{Referencia del archivo sha256.\+h}
+\hypertarget{sha256_8h}{}\label{sha256_8h}\index{sha256.h@{sha256.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Gráfico de dependencias incluidas en sha256.\+h\+:
+% FIG 0
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo\+:
+% FIG 1
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sha256_8h_a771fc76603cc1847f09101e91d159df6}{sha256\+\_\+init}} (struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}buff)
+\item 
+void \mbox{\hyperlink{sha256_8h_ae15af6ff9b047c172b7f650ee5e10804}{sha256\+\_\+update}} (struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}buff, const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{sha256_8h_a8623b10604be77d7d7951e782b43d34b}{sha256\+\_\+finalize}} (struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}buff)
+\item 
+void \mbox{\hyperlink{sha256_8h_aad7f9d2cde11fb8605fef1460f30e83d}{sha256\+\_\+read}} (const struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}buff, uint8\+\_\+t \texorpdfstring{$\ast$}{*}hash)
+\item 
+void \mbox{\hyperlink{sha256_8h_a9fb2964dda29fba79379be867f03ea85}{sha256\+\_\+read\+\_\+hex}} (const struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}buff, char \texorpdfstring{$\ast$}{*}hex)
+\item 
+void \mbox{\hyperlink{sha256_8h_ad530fbf14b5712f5b4167a653a3cf95d}{sha256\+\_\+hash}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size, uint8\+\_\+t \texorpdfstring{$\ast$}{*}hash)
+\item 
+void \mbox{\hyperlink{sha256_8h_a7ec00c2218ecd810aca6ea8af9e4f276}{sha256\+\_\+hash\+\_\+hex}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size, char \texorpdfstring{$\ast$}{*}hex)
+\item 
+void \mbox{\hyperlink{sha256_8h_ae8bd543a3f2a5f86eb3bd4bb27989b0d}{sha256\+\_\+hash\+\_\+file\+\_\+hex}} (char \texorpdfstring{$\ast$}{*}path, char \texorpdfstring{$\ast$}{*}hex)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{sha256_8h_a8623b10604be77d7d7951e782b43d34b}\label{sha256_8h_a8623b10604be77d7d7951e782b43d34b} 
+\index{sha256.h@{sha256.h}!sha256\_finalize@{sha256\_finalize}}
+\index{sha256\_finalize@{sha256\_finalize}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_finalize()}{sha256\_finalize()}}
+{\footnotesize\ttfamily void sha256\+\_\+finalize (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}}]{buff }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_ad530fbf14b5712f5b4167a653a3cf95d}\label{sha256_8h_ad530fbf14b5712f5b4167a653a3cf95d} 
+\index{sha256.h@{sha256.h}!sha256\_hash@{sha256\_hash}}
+\index{sha256\_hash@{sha256\_hash}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_hash()}{sha256\_hash()}}
+{\footnotesize\ttfamily void sha256\+\_\+hash (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{size,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{hash }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_ae8bd543a3f2a5f86eb3bd4bb27989b0d}\label{sha256_8h_ae8bd543a3f2a5f86eb3bd4bb27989b0d} 
+\index{sha256.h@{sha256.h}!sha256\_hash\_file\_hex@{sha256\_hash\_file\_hex}}
+\index{sha256\_hash\_file\_hex@{sha256\_hash\_file\_hex}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_hash\_file\_hex()}{sha256\_hash\_file\_hex()}}
+{\footnotesize\ttfamily void sha256\+\_\+hash\+\_\+file\+\_\+hex (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{char \texorpdfstring{$\ast$}{*}}]{hex }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_a7ec00c2218ecd810aca6ea8af9e4f276}\label{sha256_8h_a7ec00c2218ecd810aca6ea8af9e4f276} 
+\index{sha256.h@{sha256.h}!sha256\_hash\_hex@{sha256\_hash\_hex}}
+\index{sha256\_hash\_hex@{sha256\_hash\_hex}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_hash\_hex()}{sha256\_hash\_hex()}}
+{\footnotesize\ttfamily void sha256\+\_\+hash\+\_\+hex (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{size,  }\item[{char \texorpdfstring{$\ast$}{*}}]{hex }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_a771fc76603cc1847f09101e91d159df6}\label{sha256_8h_a771fc76603cc1847f09101e91d159df6} 
+\index{sha256.h@{sha256.h}!sha256\_init@{sha256\_init}}
+\index{sha256\_init@{sha256\_init}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_init()}{sha256\_init()}}
+{\footnotesize\ttfamily void sha256\+\_\+init (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}}]{buff }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_aad7f9d2cde11fb8605fef1460f30e83d}\label{sha256_8h_aad7f9d2cde11fb8605fef1460f30e83d} 
+\index{sha256.h@{sha256.h}!sha256\_read@{sha256\_read}}
+\index{sha256\_read@{sha256\_read}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_read()}{sha256\_read()}}
+{\footnotesize\ttfamily void sha256\+\_\+read (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}}]{buff,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{hash }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_a9fb2964dda29fba79379be867f03ea85}\label{sha256_8h_a9fb2964dda29fba79379be867f03ea85} 
+\index{sha256.h@{sha256.h}!sha256\_read\_hex@{sha256\_read\_hex}}
+\index{sha256\_read\_hex@{sha256\_read\_hex}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_read\_hex()}{sha256\_read\_hex()}}
+{\footnotesize\ttfamily void sha256\+\_\+read\+\_\+hex (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}}]{buff,  }\item[{char \texorpdfstring{$\ast$}{*}}]{hex }\end{DoxyParamCaption})}
+
+\Hypertarget{sha256_8h_ae15af6ff9b047c172b7f650ee5e10804}\label{sha256_8h_ae15af6ff9b047c172b7f650ee5e10804} 
+\index{sha256.h@{sha256.h}!sha256\_update@{sha256\_update}}
+\index{sha256\_update@{sha256\_update}!sha256.h@{sha256.h}}
+\doxysubsubsection{\texorpdfstring{sha256\_update()}{sha256\_update()}}
+{\footnotesize\ttfamily void sha256\+\_\+update (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsha256__buff}{sha256\+\_\+buff}} \texorpdfstring{$\ast$}{*}}]{buff,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+

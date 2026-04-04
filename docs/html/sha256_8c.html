@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Control de Versiones: Referencia del archivo sha256.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Control de Versiones<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">VCS - Sistema de control de Versiones</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo sha256.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sha256_8h_source.html">sha256.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependencias incluidas en sha256.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="sha256_8c__incl.png" border="0" usemap="#asha256_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a5361e797b4cf875b6a7d4600f7225521" id="r_a5361e797b4cf875b6a7d4600f7225521"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#a5361e797b4cf875b6a7d4600f7225521">rotate_r</a>(val,  bits)&#160;&#160;&#160;(val &gt;&gt; bits | val &lt;&lt; (32 - bits))</td></tr>
+<tr class="separator:a5361e797b4cf875b6a7d4600f7225521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a771fc76603cc1847f09101e91d159df6" id="r_a771fc76603cc1847f09101e91d159df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#a771fc76603cc1847f09101e91d159df6">sha256_init</a> (struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *buff)</td></tr>
+<tr class="separator:a771fc76603cc1847f09101e91d159df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae15af6ff9b047c172b7f650ee5e10804" id="r_ae15af6ff9b047c172b7f650ee5e10804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#ae15af6ff9b047c172b7f650ee5e10804">sha256_update</a> (struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *buff, const void *data, size_t size)</td></tr>
+<tr class="separator:ae15af6ff9b047c172b7f650ee5e10804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8623b10604be77d7d7951e782b43d34b" id="r_a8623b10604be77d7d7951e782b43d34b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#a8623b10604be77d7d7951e782b43d34b">sha256_finalize</a> (struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *buff)</td></tr>
+<tr class="separator:a8623b10604be77d7d7951e782b43d34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad7f9d2cde11fb8605fef1460f30e83d" id="r_aad7f9d2cde11fb8605fef1460f30e83d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#aad7f9d2cde11fb8605fef1460f30e83d">sha256_read</a> (const struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *buff, uint8_t *hash)</td></tr>
+<tr class="separator:aad7f9d2cde11fb8605fef1460f30e83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb2964dda29fba79379be867f03ea85" id="r_a9fb2964dda29fba79379be867f03ea85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#a9fb2964dda29fba79379be867f03ea85">sha256_read_hex</a> (const struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *buff, char *hex)</td></tr>
+<tr class="separator:a9fb2964dda29fba79379be867f03ea85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad530fbf14b5712f5b4167a653a3cf95d" id="r_ad530fbf14b5712f5b4167a653a3cf95d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#ad530fbf14b5712f5b4167a653a3cf95d">sha256_hash</a> (const void *data, size_t size, uint8_t *hash)</td></tr>
+<tr class="separator:ad530fbf14b5712f5b4167a653a3cf95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec00c2218ecd810aca6ea8af9e4f276" id="r_a7ec00c2218ecd810aca6ea8af9e4f276"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#a7ec00c2218ecd810aca6ea8af9e4f276">sha256_hash_hex</a> (const void *data, size_t size, char *hex)</td></tr>
+<tr class="separator:a7ec00c2218ecd810aca6ea8af9e4f276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bd543a3f2a5f86eb3bd4bb27989b0d" id="r_ae8bd543a3f2a5f86eb3bd4bb27989b0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sha256_8c.html#ae8bd543a3f2a5f86eb3bd4bb27989b0d">sha256_hash_file_hex</a> (char *path, char *hex)</td></tr>
+<tr class="separator:ae8bd543a3f2a5f86eb3bd4bb27989b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a5361e797b4cf875b6a7d4600f7225521" name="a5361e797b4cf875b6a7d4600f7225521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5361e797b4cf875b6a7d4600f7225521">&#9670;&#160;</a></span>rotate_r</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define rotate_r</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">val, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bits&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(val &gt;&gt; bits | val &lt;&lt; (32 - bits))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a8623b10604be77d7d7951e782b43d34b" name="a8623b10604be77d7d7951e782b43d34b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8623b10604be77d7d7951e782b43d34b">&#9670;&#160;</a></span>sha256_finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_finalize </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *&#160;</td>
+          <td class="paramname"><em>buff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad530fbf14b5712f5b4167a653a3cf95d" name="ad530fbf14b5712f5b4167a653a3cf95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad530fbf14b5712f5b4167a653a3cf95d">&#9670;&#160;</a></span>sha256_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_hash </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>hash</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8bd543a3f2a5f86eb3bd4bb27989b0d" name="ae8bd543a3f2a5f86eb3bd4bb27989b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8bd543a3f2a5f86eb3bd4bb27989b0d">&#9670;&#160;</a></span>sha256_hash_file_hex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_hash_file_hex </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>hex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ec00c2218ecd810aca6ea8af9e4f276" name="a7ec00c2218ecd810aca6ea8af9e4f276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec00c2218ecd810aca6ea8af9e4f276">&#9670;&#160;</a></span>sha256_hash_hex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_hash_hex </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>hex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a771fc76603cc1847f09101e91d159df6" name="a771fc76603cc1847f09101e91d159df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771fc76603cc1847f09101e91d159df6">&#9670;&#160;</a></span>sha256_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_init </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *&#160;</td>
+          <td class="paramname"><em>buff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad7f9d2cde11fb8605fef1460f30e83d" name="aad7f9d2cde11fb8605fef1460f30e83d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7f9d2cde11fb8605fef1460f30e83d">&#9670;&#160;</a></span>sha256_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_read </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>hash</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fb2964dda29fba79379be867f03ea85" name="a9fb2964dda29fba79379be867f03ea85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb2964dda29fba79379be867f03ea85">&#9670;&#160;</a></span>sha256_read_hex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_read_hex </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>hex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae15af6ff9b047c172b7f650ee5e10804" name="ae15af6ff9b047c172b7f650ee5e10804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae15af6ff9b047c172b7f650ee5e10804">&#9670;&#160;</a></span>sha256_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sha256_update </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structsha256__buff.html">sha256_buff</a> *&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

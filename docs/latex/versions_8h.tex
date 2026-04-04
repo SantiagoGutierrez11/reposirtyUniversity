@@ -1,0 +1,230 @@
+\doxysection{Referencia del archivo versions.\+h}
+\hypertarget{versions_8h}{}\label{versions_8h}\index{versions.h@{versions.h}}
+
+
+API de gestion de versiones.  
+
+
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include "{}sha256.\+h"{}}\newline
+Gráfico de dependencias incluidas en versions.\+h\+:
+% FIG 0
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo\+:
+% FIG 1
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{versions_8h_acc5088d870a0ea26098e042f6c394065}{COMMENT\+\_\+\+SIZE}}~80 /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} $<$ Longitud del comentario \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{versions_8h_ad6074dd11ab3c97c8135c43aab03ae95}{HASH\+\_\+\+SIZE}}~65
+\item 
+\#define \mbox{\hyperlink{versions_8h_ad3e0108e7b1acf5199dd266fad6c3c72}{VERSIONS\+\_\+\+DB}}~"{}versions.\+db"{}
+\item 
+\#define \mbox{\hyperlink{versions_8h_adf174355ba47dc26c433ccbc405d8041}{VERSIONS\+\_\+\+DIR}}~"{}.versions"{}
+\item 
+\#define \mbox{\hyperlink{versions_8h_a000025452d9028ff7b14d6987892be27}{VERSIONS\+\_\+\+DB\+\_\+\+PATH}}~\mbox{\hyperlink{versions_8h_adf174355ba47dc26c433ccbc405d8041}{VERSIONS\+\_\+\+DIR}} "{}/"{} \mbox{\hyperlink{versions_8h_ad3e0108e7b1acf5199dd266fad6c3c72}{VERSIONS\+\_\+\+DB}}
+\item 
+\#define \mbox{\hyperlink{versions_8h_a256c3955dccf96eca1f575cbe4d6c0c8}{EQUALS}}(s1,  s2)~(strcmp(s1, s2) == 0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\+\_\+code}} \{ \newline
+\mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4}{VERSION\+\_\+\+ERROR}}
+, \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e}{VERSION\+\_\+\+CREATED}}
+, \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf}{VERSION\+\_\+\+ADDED}}
+, \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250}{VERSION\+\_\+\+ALREADY\+\_\+\+EXISTS}}
+, \newline
+\mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff}{FILE\+\_\+\+ADDED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Codigo de retorno de operacion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{versions_8h_ad738718188ca53cb968f04310a1fb74c}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((aligned(512)))
+\begin{DoxyCompactList}\small\item\em Version de un archivo. Para cada version de un archivo se almacena el nombre original, el comentario del usuario y el hash de su contenido. El hash es a la vez el nombre del archivo dentro del repositorio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\+\_\+code}} \mbox{\hyperlink{versions_8h_ad4fe92ebc2a2ffbf17636f30a5499951}{add}} (char \texorpdfstring{$\ast$}{*}filename, char \texorpdfstring{$\ast$}{*}comment)
+\begin{DoxyCompactList}\small\item\em Adiciona un archivo al repositorio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{versions_8h_aaf76b8ab07b7b563a4984e30dc805f5e}{list}} (char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Lista las versiones de un archivo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{versions_8h_a65a04ca2b6a30e8fb6b0c81744b1d357}{get}} (char \texorpdfstring{$\ast$}{*}filename, int version)
+\begin{DoxyCompactList}\small\item\em Obtiene una version del un archivo. Sobreescribe la version existente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{versions_8h_a69997bf69be6300f1ac63935ddc2964a}{file\+\_\+version}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+API de gestion de versiones. 
+
+\begin{DoxyAuthor}{Autor}
+Erwin Meza Vega \href{mailto:emezav@unicauca.edu.co}{\texttt{ emezav@unicauca.\+edu.\+co}} 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+MIT License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{versions_8h_acc5088d870a0ea26098e042f6c394065}\label{versions_8h_acc5088d870a0ea26098e042f6c394065} 
+\index{versions.h@{versions.h}!COMMENT\_SIZE@{COMMENT\_SIZE}}
+\index{COMMENT\_SIZE@{COMMENT\_SIZE}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{COMMENT\_SIZE}{COMMENT\_SIZE}}
+{\footnotesize\ttfamily \#define COMMENT\+\_\+\+SIZE~80 /\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} $<$ Longitud del comentario \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{versions_8h_a256c3955dccf96eca1f575cbe4d6c0c8}\label{versions_8h_a256c3955dccf96eca1f575cbe4d6c0c8} 
+\index{versions.h@{versions.h}!EQUALS@{EQUALS}}
+\index{EQUALS@{EQUALS}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{EQUALS}{EQUALS}}
+{\footnotesize\ttfamily \#define EQUALS(\begin{DoxyParamCaption}\item[{}]{s1,  }\item[{}]{s2 }\end{DoxyParamCaption})~(strcmp(s1, s2) == 0)}
+
+Verdadero si dos cadenas son iguales. \Hypertarget{versions_8h_ad6074dd11ab3c97c8135c43aab03ae95}\label{versions_8h_ad6074dd11ab3c97c8135c43aab03ae95} 
+\index{versions.h@{versions.h}!HASH\_SIZE@{HASH\_SIZE}}
+\index{HASH\_SIZE@{HASH\_SIZE}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{HASH\_SIZE}{HASH\_SIZE}}
+{\footnotesize\ttfamily \#define HASH\+\_\+\+SIZE~65}
+
+Longitud del hash incluyendo NULL \Hypertarget{versions_8h_ad3e0108e7b1acf5199dd266fad6c3c72}\label{versions_8h_ad3e0108e7b1acf5199dd266fad6c3c72} 
+\index{versions.h@{versions.h}!VERSIONS\_DB@{VERSIONS\_DB}}
+\index{VERSIONS\_DB@{VERSIONS\_DB}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{VERSIONS\_DB}{VERSIONS\_DB}}
+{\footnotesize\ttfamily \#define VERSIONS\+\_\+\+DB~"{}versions.\+db"{}}
+
+Nombre de la base de datos de versiones. \Hypertarget{versions_8h_a000025452d9028ff7b14d6987892be27}\label{versions_8h_a000025452d9028ff7b14d6987892be27} 
+\index{versions.h@{versions.h}!VERSIONS\_DB\_PATH@{VERSIONS\_DB\_PATH}}
+\index{VERSIONS\_DB\_PATH@{VERSIONS\_DB\_PATH}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{VERSIONS\_DB\_PATH}{VERSIONS\_DB\_PATH}}
+{\footnotesize\ttfamily \#define VERSIONS\+\_\+\+DB\+\_\+\+PATH~\mbox{\hyperlink{versions_8h_adf174355ba47dc26c433ccbc405d8041}{VERSIONS\+\_\+\+DIR}} "{}/"{} \mbox{\hyperlink{versions_8h_ad3e0108e7b1acf5199dd266fad6c3c72}{VERSIONS\+\_\+\+DB}}}
+
+Ruta completa de la base de datos. \Hypertarget{versions_8h_adf174355ba47dc26c433ccbc405d8041}\label{versions_8h_adf174355ba47dc26c433ccbc405d8041} 
+\index{versions.h@{versions.h}!VERSIONS\_DIR@{VERSIONS\_DIR}}
+\index{VERSIONS\_DIR@{VERSIONS\_DIR}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{VERSIONS\_DIR}{VERSIONS\_DIR}}
+{\footnotesize\ttfamily \#define VERSIONS\+\_\+\+DIR~"{}.versions"{}}
+
+Directorio del repositorio. 
+
+\doxysubsection{Documentación de enumeraciones}
+\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe} 
+\index{versions.h@{versions.h}!return\_code@{return\_code}}
+\index{return\_code@{return\_code}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{return\_code}{return\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\+\_\+code}}}
+
+
+
+Codigo de retorno de operacion. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERSION\_ERROR@{VERSION\_ERROR}!versions.h@{versions.h}}\index{versions.h@{versions.h}!VERSION\_ERROR@{VERSION\_ERROR}}}\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4} 
+VERSION\+\_\+\+ERROR&Error no especificado \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERSION\_CREATED@{VERSION\_CREATED}!versions.h@{versions.h}}\index{versions.h@{versions.h}!VERSION\_CREATED@{VERSION\_CREATED}}}\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e} 
+VERSION\+\_\+\+CREATED&Version creada \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERSION\_ADDED@{VERSION\_ADDED}!versions.h@{versions.h}}\index{versions.h@{versions.h}!VERSION\_ADDED@{VERSION\_ADDED}}}\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf} 
+VERSION\+\_\+\+ADDED&Version agregada \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERSION\_ALREADY\_EXISTS@{VERSION\_ALREADY\_EXISTS}!versions.h@{versions.h}}\index{versions.h@{versions.h}!VERSION\_ALREADY\_EXISTS@{VERSION\_ALREADY\_EXISTS}}}\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250} 
+VERSION\+\_\+\+ALREADY\+\_\+\+EXISTS&Version ya existe \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FILE\_ADDED@{FILE\_ADDED}!versions.h@{versions.h}}\index{versions.h@{versions.h}!FILE\_ADDED@{FILE\_ADDED}}}\Hypertarget{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff}\label{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff} 
+FILE\+\_\+\+ADDED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{versions_8h_ad738718188ca53cb968f04310a1fb74c}\label{versions_8h_ad738718188ca53cb968f04310a1fb74c} 
+\index{versions.h@{versions.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(aligned(512))}]{ }\end{DoxyParamCaption})}
+
+
+
+Version de un archivo. Para cada version de un archivo se almacena el nombre original, el comentario del usuario y el hash de su contenido. El hash es a la vez el nombre del archivo dentro del repositorio. 
+
+\texorpdfstring{$<$}{<} Nombre del archivo original.
+
+\texorpdfstring{$<$}{<} Hash del contenido del archivo.
+
+\texorpdfstring{$<$}{<} Comentario del usuario.\Hypertarget{versions_8h_ad4fe92ebc2a2ffbf17636f30a5499951}\label{versions_8h_ad4fe92ebc2a2ffbf17636f30a5499951} 
+\index{versions.h@{versions.h}!add@{add}}
+\index{add@{add}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{versions_8h_aa723f8974b9ec5ee9048ff1618f3d4fe}{return\+\_\+code}} add (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{char \texorpdfstring{$\ast$}{*}}]{comment }\end{DoxyParamCaption})}
+
+
+
+Adiciona un archivo al repositorio. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em filename} & Nombre del archivo a adicionar \\
+\hline
+{\em comment} & Comentario de la version actual\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Codigo de la operacion 
+\end{DoxyReturn}
+\Hypertarget{versions_8h_a65a04ca2b6a30e8fb6b0c81744b1d357}\label{versions_8h_a65a04ca2b6a30e8fb6b0c81744b1d357} 
+\index{versions.h@{versions.h}!get@{get}}
+\index{get@{get}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily int get (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{int}]{version }\end{DoxyParamCaption})}
+
+
+
+Obtiene una version del un archivo. Sobreescribe la version existente. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em filename} & Nombre de archivo. \\
+\hline
+{\em version} & Numero secuencial de la version.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+1 en caso de exito, 0 si ocurre un error. 
+\end{DoxyReturn}
+\Hypertarget{versions_8h_aaf76b8ab07b7b563a4984e30dc805f5e}\label{versions_8h_aaf76b8ab07b7b563a4984e30dc805f5e} 
+\index{versions.h@{versions.h}!list@{list}}
+\index{list@{list}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{list()}{list()}}
+{\footnotesize\ttfamily void list (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Lista las versiones de un archivo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em filename} & Nombre del archivo, NULL para listar todo el repositorio. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{versions_8h_a69997bf69be6300f1ac63935ddc2964a}\label{versions_8h_a69997bf69be6300f1ac63935ddc2964a} 
+\index{versions.h@{versions.h}!file\_version@{file\_version}}
+\index{file\_version@{file\_version}!versions.h@{versions.h}}
+\doxysubsubsection{\texorpdfstring{file\_version}{file\_version}}
+{\footnotesize\ttfamily file\+\_\+version}
+

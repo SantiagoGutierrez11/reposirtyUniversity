@@ -37,13 +37,22 @@ int main(int argc, char *argv[]) {
 	}
 
 	// Validar argumentos de linea de comandos
-	if (argc == 4
-			&& EQUALS(argv[1], "add")) {
-		if (add(argv[2], argv[3]) == VERSION_ERROR) {
+	if (argc == 4 && EQUALS(argv[1], "add")) {
+		return_code result = add(argv[2], argv[3]);
+		switch (result) {
+			case VERSION_ERROR:
+				fprintf(stderr, "Error al adicionar %s\n", argv[2]);
+				break;
+			case VERSION_ALREADY_EXISTS:
+				fprintf(stderr, "La version de %s ya existe en el repositorio\n", argv[2]);
+				break;
+			case VERSION_ADDED:
+				printf("Version de %s adicionada al repositorio\n", argv[2]);
+				break;
+			default:	
 			fprintf(stderr, "No se puede adicionar %s\n", argv[2]);
 		}
-	}else if (argc == 2
-			&& EQUALS(argv[1], "list")) {
+	}else if (argc == 2 && EQUALS(argv[1], "list")) {
 		//Listar todos los archivos almacenados en el repositorio
 		list(NULL);
 	}else if (argc == 3

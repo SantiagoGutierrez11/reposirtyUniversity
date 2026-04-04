@@ -1,0 +1,107 @@
+\doxysection{sha256.\+h}
+\hypertarget{sha256_8h_source}{}\label{sha256_8h_source}\mbox{\hyperlink{sha256_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ MIT\ License}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2020\ LekKit\ https://github.com/LekKit}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ SHA256\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ SHA256\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsha256__buff}{sha256\_buff}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structsha256__buff_a2c51c23ccec46b683d1d3ac9f30fa686}{data\_size}};}
+\DoxyCodeLine{00038\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structsha256__buff_a9bb23caac40cd9e76fbc32fa389f3ad3}{h}}[8];}
+\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structsha256__buff_a792055212a10e1030d7310f672cba24d}{last\_chunk}}[64];}
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structsha256__buff_ad5dbadf7147bc90642bcad30136b6259}{chunk\_size}};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*\ Initialization,\ must\ be\ called\ before\ any\ further\ use\ */}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_a771fc76603cc1847f09101e91d159df6}{sha256\_init}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structsha256__buff}{sha256\_buff}}*\ buff);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*\ Process\ block\ of\ data\ of\ arbitary\ length,\ can\ be\ used\ on\ data\ streams\ (files,\ etc)\ */}}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_ae15af6ff9b047c172b7f650ee5e10804}{sha256\_update}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structsha256__buff}{sha256\_buff}}*\ buff,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{/*\ Produces\ final\ hash\ values\ (digest)\ to\ be\ read}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ If\ the\ buffer\ is\ reused\ later,\ init\ must\ be\ called\ again\ */}}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_a8623b10604be77d7d7951e782b43d34b}{sha256\_finalize}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structsha256__buff}{sha256\_buff}}*\ buff);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*\ Read\ digest\ into\ 32-\/byte\ binary\ array\ */}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_aad7f9d2cde11fb8605fef1460f30e83d}{sha256\_read}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structsha256__buff}{sha256\_buff}}*\ buff,\ uint8\_t*\ hash);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ Read\ digest\ into\ 64-\/char\ string\ as\ hex\ (without\ null-\/byte)\ */}}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_a9fb2964dda29fba79379be867f03ea85}{sha256\_read\_hex}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structsha256__buff}{sha256\_buff}}*\ buff,\ \textcolor{keywordtype}{char}*\ hex);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/*\ Hashes\ single\ contiguous\ block\ of\ data\ and\ reads\ digest\ into\ 32-\/byte\ binary\ array\ */}}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_ad530fbf14b5712f5b4167a653a3cf95d}{sha256\_hash}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size,\ uint8\_t*\ hash);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ Hashes\ single\ contiguous\ block\ of\ data\ and\ reads\ digest\ into\ 64-\/char\ string\ (without\ null-\/byte)\ */}}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_a7ec00c2218ecd810aca6ea8af9e4f276}{sha256\_hash\_hex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{char}*\ hex);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/*\ Hashes\ a\ file\ */}}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sha256_8h_ae8bd543a3f2a5f86eb3bd4bb27989b0d}{sha256\_hash\_file\_hex}}(\textcolor{keywordtype}{char}\ *\ path,\ \textcolor{keywordtype}{char}\ *\ hex);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{class\ }SHA256\ \{}
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsha256__buff}{sha256\_buff}}\ buff;}
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ SHA256()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_a771fc76603cc1847f09101e91d159df6}{sha256\_init}}(\&buff);}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ std::size\_t\ size)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_ae15af6ff9b047c172b7f650ee5e10804}{sha256\_update}}(\&buff,\ data,\ size);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ std::string\ hash()\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ hash[64];}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_a8623b10604be77d7d7951e782b43d34b}{sha256\_finalize}}(\&buff);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_a9fb2964dda29fba79379be867f03ea85}{sha256\_read\_hex}}(\&buff,\ hash);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_a771fc76603cc1847f09101e91d159df6}{sha256\_init}}(\&buff);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(hash,\ 64);}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ hashString(\textcolor{keyword}{const}\ std::string\&\ str)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ hash[64];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sha256_8c_a7ec00c2218ecd810aca6ea8af9e4f276}{sha256\_hash\_hex}}(str.c\_str(),\ str.length(),\ hash);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(hash,\ 64);}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Control de Versiones: Referencia del archivo versions.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Control de Versiones<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">VCS - Sistema de control de Versiones</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo versions.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>API de gestion de versiones.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sha256_8h_source.html">sha256.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependencias incluidas en versions.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="versions_8h__incl.png" border="0" usemap="#aversions_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="versions_8h__dep__incl.png" border="0" usemap="#aversions_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="versions_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:acc5088d870a0ea26098e042f6c394065" id="r_acc5088d870a0ea26098e042f6c394065"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#acc5088d870a0ea26098e042f6c394065">COMMENT_SIZE</a>&#160;&#160;&#160;80 /** &lt; Longitud del comentario */</td></tr>
+<tr class="separator:acc5088d870a0ea26098e042f6c394065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6074dd11ab3c97c8135c43aab03ae95" id="r_ad6074dd11ab3c97c8135c43aab03ae95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#ad6074dd11ab3c97c8135c43aab03ae95">HASH_SIZE</a>&#160;&#160;&#160;65</td></tr>
+<tr class="separator:ad6074dd11ab3c97c8135c43aab03ae95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3e0108e7b1acf5199dd266fad6c3c72" id="r_ad3e0108e7b1acf5199dd266fad6c3c72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#ad3e0108e7b1acf5199dd266fad6c3c72">VERSIONS_DB</a>&#160;&#160;&#160;&quot;versions.db&quot;</td></tr>
+<tr class="separator:ad3e0108e7b1acf5199dd266fad6c3c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf174355ba47dc26c433ccbc405d8041" id="r_adf174355ba47dc26c433ccbc405d8041"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#adf174355ba47dc26c433ccbc405d8041">VERSIONS_DIR</a>&#160;&#160;&#160;&quot;.versions&quot;</td></tr>
+<tr class="separator:adf174355ba47dc26c433ccbc405d8041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000025452d9028ff7b14d6987892be27" id="r_a000025452d9028ff7b14d6987892be27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#a000025452d9028ff7b14d6987892be27">VERSIONS_DB_PATH</a>&#160;&#160;&#160;<a class="el" href="versions_8h.html#adf174355ba47dc26c433ccbc405d8041">VERSIONS_DIR</a> &quot;/&quot; <a class="el" href="versions_8h.html#ad3e0108e7b1acf5199dd266fad6c3c72">VERSIONS_DB</a></td></tr>
+<tr class="separator:a000025452d9028ff7b14d6987892be27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256c3955dccf96eca1f575cbe4d6c0c8" id="r_a256c3955dccf96eca1f575cbe4d6c0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#a256c3955dccf96eca1f575cbe4d6c0c8">EQUALS</a>(s1,  s2)&#160;&#160;&#160;(strcmp(s1, s2) == 0)</td></tr>
+<tr class="separator:a256c3955dccf96eca1f575cbe4d6c0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:aa723f8974b9ec5ee9048ff1618f3d4fe" id="r_aa723f8974b9ec5ee9048ff1618f3d4fe"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fe">return_code</a> { <br />
+&#160;&#160;<a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4">VERSION_ERROR</a>
+, <a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e">VERSION_CREATED</a>
+, <a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf">VERSION_ADDED</a>
+, <a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250">VERSION_ALREADY_EXISTS</a>
+, <br />
+&#160;&#160;<a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff">FILE_ADDED</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:aa723f8974b9ec5ee9048ff1618f3d4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codigo de retorno de operacion.  <a href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fe">Más...</a><br /></td></tr>
+<tr class="separator:aa723f8974b9ec5ee9048ff1618f3d4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ad738718188ca53cb968f04310a1fb74c" id="r_ad738718188ca53cb968f04310a1fb74c"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#ad738718188ca53cb968f04310a1fb74c">__attribute__</a> ((aligned(512)))</td></tr>
+<tr class="memdesc:ad738718188ca53cb968f04310a1fb74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version de un archivo. Para cada version de un archivo se almacena el nombre original, el comentario del usuario y el hash de su contenido. El hash es a la vez el nombre del archivo dentro del repositorio.  <br /></td></tr>
+<tr class="separator:ad738718188ca53cb968f04310a1fb74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fe92ebc2a2ffbf17636f30a5499951" id="r_ad4fe92ebc2a2ffbf17636f30a5499951"><td class="memItemLeft" align="right" valign="top"><a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fe">return_code</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#ad4fe92ebc2a2ffbf17636f30a5499951">add</a> (char *filename, char *comment)</td></tr>
+<tr class="memdesc:ad4fe92ebc2a2ffbf17636f30a5499951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona un archivo al repositorio.  <br /></td></tr>
+<tr class="separator:ad4fe92ebc2a2ffbf17636f30a5499951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf76b8ab07b7b563a4984e30dc805f5e" id="r_aaf76b8ab07b7b563a4984e30dc805f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#aaf76b8ab07b7b563a4984e30dc805f5e">list</a> (char *filename)</td></tr>
+<tr class="memdesc:aaf76b8ab07b7b563a4984e30dc805f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista las versiones de un archivo.  <br /></td></tr>
+<tr class="separator:aaf76b8ab07b7b563a4984e30dc805f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65a04ca2b6a30e8fb6b0c81744b1d357" id="r_a65a04ca2b6a30e8fb6b0c81744b1d357"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#a65a04ca2b6a30e8fb6b0c81744b1d357">get</a> (char *filename, int version)</td></tr>
+<tr class="memdesc:a65a04ca2b6a30e8fb6b0c81744b1d357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene una version del un archivo. Sobreescribe la version existente.  <br /></td></tr>
+<tr class="separator:a65a04ca2b6a30e8fb6b0c81744b1d357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a69997bf69be6300f1ac63935ddc2964a" id="r_a69997bf69be6300f1ac63935ddc2964a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="versions_8h.html#a69997bf69be6300f1ac63935ddc2964a">file_version</a></td></tr>
+<tr class="separator:a69997bf69be6300f1ac63935ddc2964a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>API de gestion de versiones. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@u'+'ni'+'cau'+'ca'+'.ed'+'u.'+'co'; return false;">emeza<span class="obfuscator">.nosp@m.</span>v@un<span class="obfuscator">.nosp@m.</span>icauc<span class="obfuscator">.nosp@m.</span>a.ed<span class="obfuscator">.nosp@m.</span>u.co</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT License </dd></dl>
+</div><h2 class="groupheader">Documentación de «define»</h2>
+<a id="acc5088d870a0ea26098e042f6c394065" name="acc5088d870a0ea26098e042f6c394065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5088d870a0ea26098e042f6c394065">&#9670;&#160;</a></span>COMMENT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMMENT_SIZE&#160;&#160;&#160;80 /** &lt; Longitud del comentario */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a256c3955dccf96eca1f575cbe4d6c0c8" name="a256c3955dccf96eca1f575cbe4d6c0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256c3955dccf96eca1f575cbe4d6c0c8">&#9670;&#160;</a></span>EQUALS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EQUALS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">s1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">s2&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(strcmp(s1, s2) == 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Verdadero si dos cadenas son iguales. </p>
+
+</div>
+</div>
+<a id="ad6074dd11ab3c97c8135c43aab03ae95" name="ad6074dd11ab3c97c8135c43aab03ae95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6074dd11ab3c97c8135c43aab03ae95">&#9670;&#160;</a></span>HASH_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HASH_SIZE&#160;&#160;&#160;65</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Longitud del hash incluyendo NULL </p>
+
+</div>
+</div>
+<a id="ad3e0108e7b1acf5199dd266fad6c3c72" name="ad3e0108e7b1acf5199dd266fad6c3c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e0108e7b1acf5199dd266fad6c3c72">&#9670;&#160;</a></span>VERSIONS_DB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VERSIONS_DB&#160;&#160;&#160;&quot;versions.db&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Nombre de la base de datos de versiones. </p>
+
+</div>
+</div>
+<a id="a000025452d9028ff7b14d6987892be27" name="a000025452d9028ff7b14d6987892be27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a000025452d9028ff7b14d6987892be27">&#9670;&#160;</a></span>VERSIONS_DB_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VERSIONS_DB_PATH&#160;&#160;&#160;<a class="el" href="versions_8h.html#adf174355ba47dc26c433ccbc405d8041">VERSIONS_DIR</a> &quot;/&quot; <a class="el" href="versions_8h.html#ad3e0108e7b1acf5199dd266fad6c3c72">VERSIONS_DB</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ruta completa de la base de datos. </p>
+
+</div>
+</div>
+<a id="adf174355ba47dc26c433ccbc405d8041" name="adf174355ba47dc26c433ccbc405d8041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf174355ba47dc26c433ccbc405d8041">&#9670;&#160;</a></span>VERSIONS_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VERSIONS_DIR&#160;&#160;&#160;&quot;.versions&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Directorio del repositorio. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="aa723f8974b9ec5ee9048ff1618f3d4fe" name="aa723f8974b9ec5ee9048ff1618f3d4fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa723f8974b9ec5ee9048ff1618f3d4fe">&#9670;&#160;</a></span>return_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fe">return_code</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Codigo de retorno de operacion. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4" name="aa723f8974b9ec5ee9048ff1618f3d4feaaea842af3c3103cad35f897e3378a4e4"></a>VERSION_ERROR&#160;</td><td class="fielddoc"><p>Error no especificado </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e" name="aa723f8974b9ec5ee9048ff1618f3d4fea2a8c108083126a5f34c442a90d855d4e"></a>VERSION_CREATED&#160;</td><td class="fielddoc"><p>Version creada </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf" name="aa723f8974b9ec5ee9048ff1618f3d4fea5c5f93f3d278a45cfebefefc8d5396cf"></a>VERSION_ADDED&#160;</td><td class="fielddoc"><p>Version agregada </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250" name="aa723f8974b9ec5ee9048ff1618f3d4fea8365144355870ee1221b1bd7f788d250"></a>VERSION_ALREADY_EXISTS&#160;</td><td class="fielddoc"><p>Version ya existe </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff" name="aa723f8974b9ec5ee9048ff1618f3d4fea13d7a1fbc9003903d01c4721b1f616ff"></a>FILE_ADDED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="ad738718188ca53cb968f04310a1fb74c" name="ad738718188ca53cb968f04310a1fb74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad738718188ca53cb968f04310a1fb74c">&#9670;&#160;</a></span>__attribute__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(aligned(512))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Version de un archivo. Para cada version de un archivo se almacena el nombre original, el comentario del usuario y el hash de su contenido. El hash es a la vez el nombre del archivo dentro del repositorio. </p>
+<p>&lt; Nombre del archivo original.</p>
+<p>&lt; Hash del contenido del archivo.</p>
+<p>&lt; Comentario del usuario.</p>
+
+</div>
+</div>
+<a id="ad4fe92ebc2a2ffbf17636f30a5499951" name="ad4fe92ebc2a2ffbf17636f30a5499951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4fe92ebc2a2ffbf17636f30a5499951">&#9670;&#160;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="versions_8h.html#aa723f8974b9ec5ee9048ff1618f3d4fe">return_code</a> add </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona un archivo al repositorio. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nombre del archivo a adicionar </td></tr>
+    <tr><td class="paramname">comment</td><td>Comentario de la version actual</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Codigo de la operacion </dd></dl>
+
+</div>
+</div>
+<a id="a65a04ca2b6a30e8fb6b0c81744b1d357" name="a65a04ca2b6a30e8fb6b0c81744b1d357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65a04ca2b6a30e8fb6b0c81744b1d357">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>version</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtiene una version del un archivo. Sobreescribe la version existente. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nombre de archivo. </td></tr>
+    <tr><td class="paramname">version</td><td>Numero secuencial de la version.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>1 en caso de exito, 0 si ocurre un error. </dd></dl>
+
+</div>
+</div>
+<a id="aaf76b8ab07b7b563a4984e30dc805f5e" name="aaf76b8ab07b7b563a4984e30dc805f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf76b8ab07b7b563a4984e30dc805f5e">&#9670;&#160;</a></span>list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void list </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lista las versiones de un archivo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Nombre del archivo, NULL para listar todo el repositorio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a69997bf69be6300f1ac63935ddc2964a" name="a69997bf69be6300f1ac63935ddc2964a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69997bf69be6300f1ac63935ddc2964a">&#9670;&#160;</a></span>file_version</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">file_version</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

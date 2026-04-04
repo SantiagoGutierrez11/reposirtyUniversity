@@ -1,0 +1,35 @@
+\doxysection{Referencia del archivo main.\+c}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include "{}versions.\+h"{}}\newline
+Gráfico de dependencias incluidas en main.\+c\+:
+% FIG 0
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a2ef30c42cbc289d899a8be5d2d8f77d0}{usage}} ()
+\begin{DoxyCompactList}\small\item\em Imprime la ayuda. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a2ef30c42cbc289d899a8be5d2d8f77d0}\label{main_8c_a2ef30c42cbc289d899a8be5d2d8f77d0} 
+\index{main.c@{main.c}!usage@{usage}}
+\index{usage@{usage}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily void usage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime la ayuda. 
+
