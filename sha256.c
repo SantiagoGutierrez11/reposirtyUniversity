@@ -22,13 +22,25 @@
 	 SOFTWARE.
  */
 
-/* Details of the implementation, etc can be found here: https://en.wikipedia.org/wiki/SHA-2
-	 See sha256.h for short documentation on library usage */
+/**
+ * @file
+ * @brief Implementacion de SHA-256 para calculos de hash.
+ *
+ * Este archivo contiene la implementacion full de SHA-256, incluyendo el
+ * procesamiento de datos por bloques y versiones en hexadecimal.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "sha256.h"
 
+/**
+ * @brief Inicializa el contexto SHA-256.
+ *
+ * Prepara el estado interno del buffer antes de procesar datos.
+ *
+ * @param buff Contexto SHA-256 a inicializar.
+ */
 void sha256_init(struct sha256_buff* buff) {
 	buff->h[0] = 0x6a09e667;
 	buff->h[1] = 0xbb67ae85;
@@ -42,6 +54,11 @@ void sha256_init(struct sha256_buff* buff) {
 	buff->chunk_size = 0;
 }
 
+/**
+ * @brief Constantes de ronda del algoritmo SHA-256.
+ *
+ * Cada bloque de 512 bits utiliza estos valores durante la compresion.
+ */
 const static uint32_t k[64] = {
 	0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
 	0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
@@ -55,6 +72,14 @@ const static uint32_t k[64] = {
 
 #define rotate_r(val, bits) (val >> bits | val << (32 - bits))
 
+/**
+ * @brief Procesa un bloque de 512 bits para actualizar el hash.
+ *
+ * Esta funcion es la implementacion interna del nucleo SHA-256.
+ *
+ * @param buff Contexto SHA-256 con el estado actual.
+ * @param chunk Bloque de 64 bytes a procesar.
+ */
 static void sha256_calc_chunk(struct sha256_buff* buff, const uint8_t* chunk) {
 	uint32_t w[64];
 	uint32_t tv[8];
@@ -96,6 +121,15 @@ static void sha256_calc_chunk(struct sha256_buff* buff, const uint8_t* chunk) {
 		buff->h[i] += tv[i];
 }
 
+/**
+ * @brief Actualiza el estado SHA-256 con nuevos datos.
+ *
+ * Puede llamarse repetidamente para procesar streams de datos.
+ *
+ * @param buff Contexto SHA-256 en uso.
+ * @param data Puntero a los datos de entrada.
+ * @param size Numero de bytes a procesar.
+ */
 void sha256_update(struct sha256_buff* buff, const void* data, size_t size) {
 	const uint8_t* ptr = (const uint8_t*)data;
 	buff->data_size += size;
@@ -121,6 +155,13 @@ void sha256_update(struct sha256_buff* buff, const void* data, size_t size) {
 	buff->chunk_size += size;
 }
 
+/**
+ * @brief Finaliza el calculo del hash SHA-256.
+ *
+ * Rellena el bloque final y procesa cualquier dato pendiente.
+ *
+ * @param buff Contexto SHA-256 con los datos acumulados.
+ */
 void sha256_finalize(struct sha256_buff* buff) {
 	buff->last_chunk[buff->chunk_size] = 0x80;
 	buff->chunk_size++;
@@ -143,6 +184,12 @@ void sha256_finalize(struct sha256_buff* buff) {
 	sha256_calc_chunk(buff, buff->last_chunk);
 }
 
+/**
+ * @brief Lee el digest SHA-256 en formato binario.
+ *
+ * @param buff Contexto SHA-256 finalizado.
+ * @param hash Salida de 32 bytes para el digest.
+ */
 void sha256_read(const struct sha256_buff* buff, uint8_t* hash) {
 	uint32_t i;
 	for (i = 0; i < 8; i++) {
@@ -153,6 +200,13 @@ void sha256_read(const struct sha256_buff* buff, uint8_t* hash) {
 	}
 }
 
+/**
+ * @brief Convierte datos binarios a representacion hexadecimal.
+ *
+ * @param data Puntero a los datos binarios.
+ * @param len Longitud en bytes de los datos.
+ * @param out Salida de texto hexadecimal (2*len caracteres).
+ */
 static void bin_to_hex(const void* data, uint32_t len, char* out) {
 	static const char* const lut = "0123456789abcdef";
 	uint32_t i;
@@ -163,12 +217,27 @@ static void bin_to_hex(const void* data, uint32_t len, char* out) {
 	}
 }
 
+/**
+ * @brief Lee el digest SHA-256 en formato hexadecimal.
+ *
+ * El buffer debe tener capacidad para 64 caracteres.
+ *
+ * @param buff Contexto SHA-256 finalizado.
+ * @param hex Salida de 64 caracteres hexadecimales.
+ */
 void sha256_read_hex(const struct sha256_buff* buff, char* hex) {
 	uint8_t hash[32];
 	sha256_read(buff, hash);
 	bin_to_hex(hash, 32, hex);
 }
 
+/**
+ * @brief Calcula el SHA-256 de un bloque de datos.
+ *
+ * @param data Puntero a los datos a hashear.
+ * @param size Numero de bytes a procesar.
+ * @param hash Salida binaria de 32 bytes.
+ */
 void sha256_hash(const void* data, size_t size, uint8_t* hash) {
 	struct sha256_buff buff;
 	sha256_init(&buff);
@@ -177,12 +246,25 @@ void sha256_hash(const void* data, size_t size, uint8_t* hash) {
 	sha256_read(&buff, hash);
 }
 
+/**
+ * @brief Calcula el SHA-256 de un bloque de datos y retorna el hash en hex.
+ *
+ * @param data Puntero a los datos a hashear.
+ * @param size Numero de bytes a procesar.
+ * @param hex Salida de 64 caracteres hexadecimales.
+ */
 void sha256_hash_hex(const void* data, size_t size, char* hex) {
 	uint8_t hash[32];
 	sha256_hash(data, size, hash);
 	bin_to_hex(hash, 32, hex);
 }
 
+/**
+ * @brief Calcula el SHA-256 de un archivo y retorna el hash en hex.
+ *
+ * @param path Ruta del archivo de entrada.
+ * @param hex Salida de 64 caracteres hexadecimales.
+ */
 void sha256_hash_file_hex(char * path, char * hex) {
 	FILE* file = fopen(path, "rb");
 	if (!file){
