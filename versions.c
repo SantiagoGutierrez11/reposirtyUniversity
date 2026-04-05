@@ -7,88 +7,24 @@
 
 #include "versions.h"
 
+return_code create_version(char * filename, char * comment, file_version * result);
+int version_exists(char * filename, char * hash);
+char *get_file_hash(char * filename, char * hash);
+int copy(char * source, char * destination);
+int store_file(char * filename, char * hash);
+int retrieve_file(char * hash, char * filename);
+int add_new_version(file_version * v);
+void delete_version_file(char * hash);
+//IMPLEMENTACION DE LAS FUNCIONES
+
 /**
  * @brief Crea una version en memoria del archivo
  * Valida si el archivo especificado existe y crea su hash
  * @param filename Nombre del archivo
- * @param hash Hash del contenido del archivo
  * @param comment Comentario
  * @param result Nueva version en memoria
- *
  * @return Resultado de la operacion
  */
-return_code create_version(char * filename, char * comment, file_version * result);
-/**
- * @brief Verifica si existe una version para un archivo
- *
- * @param filename Nombre del archivo
- * @param hash Hash del contenido
- *
- * @return 1 si la version existe, 0 en caso contrario.
- */
-int version_exists(char * filename, char * hash);
-/**
- * @brief Obtiene el hash de un archivo.
- * @param filename Nombre del archivo a obtener el hash
- * @param hash Buffer para almacenar el hash (HASH_SIZE)
- * @return Referencia al buffer, NULL si ocurre error
- */
-char *get_file_hash(char * filename, char * hash);
-/**
- * @brief Copia un archivo
- *
- * @param source Archivo fuente
- * @param destination Destino
- *
- * @return 1 en caso de exito, 0 en caso de error
- */
-int copy(char * source, char * destination);
-
-/**
-* @brief Almacena un archivo en el repositorio
-*
-* @param filename Nombre del archivo
-* @param hash Hash del archivo: nombre del archivo en el repositorio
-*
-* @return 1 en caso de exito, 0 en caso de error
-*/
-int store_file(char * filename, char * hash);
-
-/**
-* @brief Recupera un archivo del repositorio
-*
-* @param hash Hash del archivo: nombre del archivo en el repositorio
-* @param filename Nombre del archivo
-*
-* @return 1 en caso de exito, 0 en caso de error
-*/
-int retrieve_file(char * hash, char * filename);
-
-/**
- * @brief Adiciona una nueva version de un archivo.
- *
- * @param filename Nombre del archivo.
- * @param comment Comentario de la version.
- * @param hash Hash del contenido.
- *
- * @return 1 en caso de exito, 0 en caso de error.
- */
-int add_new_version(file_version * v);
-
-/**
- * @brief Elimina un archivo del repositorio
- *
- * @param hash Hash del archivo: nombre del archivo en el repositorioror.
- */
-void delete_version_file(char * hash);
-//IMPLEMENTACION DE LAS FUNCIONES
-
-// Llena a estructura result recibida por referencia.
-// Debe validar:
-// 1. Que el archivo exista y sea un archivo regular
-// 2. Obtiene y guarda en la estructura el HASH del archivo
-// Llena todos los atributos de la estructura y retorna VERSION_CREATED
-// En caso de fallar alguna validacion, retorna VERSION_ERROR
 return_code create_version(char * filename, char * comment, file_version * result) {
 	if (!filename || !comment || !result){
 		fprintf(stderr, "Argumentos invalidos para crear la version\n");
@@ -135,7 +71,12 @@ return_code create_version(char * filename, char * comment, file_version * resul
 	return VERSION_CREATED;
 }
 
-
+/**
+ * @brief Adiciona una nueva version de un archivo al repositorio
+ * @param filename Nombre del archivo
+ * @param comment Comentario de la version
+ * @return Codigo de retorno de la operacion
+ */
 return_code add(char * filename, char * comment) {
 
 	file_version v;
@@ -169,6 +110,10 @@ return_code add(char * filename, char * comment) {
 	return VERSION_ADDED;
 }
 
+/**
+ * @brief Elimina un archivo del repositorio
+ * @param hash Hash del archivo
+ */
 void delete_version_file(char * hash) {
 	char filePath[PATH_MAX];
 	int res = snprintf(filePath, PATH_MAX, "%s/%s", VERSIONS_DIR, hash);
@@ -180,6 +125,12 @@ void delete_version_file(char * hash) {
 		perror("Error al eliminar el archivo del repositorio");
 	}
 }
+
+/**
+ * @brief Adiciona una nueva version a la base de datos
+ * @param v Estructura de la version
+ * @return 1 en caso de exito, 0 en caso de error
+ */
 int add_new_version(file_version * v) {
 	FILE * fileDb;
 	fileDb = fopen(VERSIONS_DB_PATH, "ab"); // se abre el archivo en modo append para agregar un nuevo registro al final
@@ -197,7 +148,10 @@ int add_new_version(file_version * v) {
 	return 1;
 }
 
-
+/**
+ * @brief Lista las versiones de un archivo o todos los archivos
+ * @param filename Nombre del archivo, NULL para todos
+ */
 void list(char * filename) {
 
 	FILE *fileDb;
@@ -227,10 +181,6 @@ void list(char * filename) {
 }
 
 char *get_file_hash(char * filename, char * hash) {
-	/*
-	char *comando; NO SÉ PARA QUE SE USA
-	FILE * fp;
-	*/
 	struct stat s;
 
 	//Verificar que el archivo existe y que se puede obtener el hash
@@ -248,6 +198,12 @@ char *get_file_hash(char * filename, char * hash) {
 
 }
 
+/**
+ * @brief Copia un archivo
+ * @param source Archivo fuente
+ * @param destination Archivo destino
+ * @return 1 exito, 0 error
+ */
 int copy(char * source, char * destination) {
 	FILE *fdSource, *fdDestination;
 	fdSource = fopen(source, "rb");
@@ -283,7 +239,12 @@ int copy(char * source, char * destination) {
 	return 1;
 }
 
-// Verifica si existe una version para un archivo
+/**
+ * @brief Verifica si existe una version para un archivo
+ * @param filename Nombre del archivo
+ * @param hash Hash del contenido
+ * @return 1 si existe, 0 no
+ */
 int version_exists(char * filename, char * hash){
 	FILE *fileDb;
 	file_version r;
@@ -301,7 +262,12 @@ int version_exists(char * filename, char * hash){
 	return 0;
 }
 
-
+/**
+ * @brief Obtiene una version del archivo
+ * @param filename Nombre del archivo
+ * @param version Numero de version
+ * @return 1 exito, 0 error
+ */
 int get(char * filename, int version) {
 	int version_count = 0;
 	file_version r;
@@ -340,9 +306,12 @@ int get(char * filename, int version) {
 	return 1;
 }
 
-
-// Guarda copia del archivo en .version/hash
-
+/**
+ * @brief Almacena un archivo en el repositorio
+ * @param filename Nombre del archivo
+ * @param hash Hash del archivo
+ * @return 1 exito, 0 error
+ */
 int store_file(char * filename, char * hash) {
 	char dst_filename[PATH_MAX];
 	int res = snprintf(dst_filename, PATH_MAX, "%s/%s", VERSIONS_DIR, hash);
@@ -353,8 +322,12 @@ int store_file(char * filename, char * hash) {
 	return copy(filename, dst_filename);
 }
 
-// Recupera version del archivo en .version/hash
-
+/**
+ * @brief Recupera un archivo del repositorio
+ * @param hash Hash del archivo
+ * @param filename Nombre del archivo destino
+ * @return 1 exito, 0 error
+ */
 int retrieve_file(char * hash, char * filename) {
 	char src_filename[PATH_MAX];
 	int res = snprintf(src_filename, PATH_MAX, "%s/%s", VERSIONS_DIR, hash);

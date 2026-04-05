@@ -21,6 +21,12 @@
 */
 void usage();
 
+/**
+ * @brief Funcion principal del programa
+ * @param argc Numero de argumentos
+ * @param argv Arreglo de argumentos
+ * @return Codigo de salida
+ */
 int main(int argc, char *argv[]) {
 	struct stat s;
 
