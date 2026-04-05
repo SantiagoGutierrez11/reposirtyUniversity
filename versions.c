@@ -15,6 +15,12 @@ int store_file(char * filename, char * hash);
 int retrieve_file(char * hash, char * filename);
 int add_new_version(file_version * v);
 void delete_version_file(char * hash);
+/**
+ * @brief Verifica si un archivo ya tiene una version en la base de datos
+ * @param filename Nombre del archivo
+ * @return 1 si el archivo ya tiene una version, 0 si no
+ */
+int file_exists_in_db(char * filename):
 //IMPLEMENTACION DE LAS FUNCIONES
 
 /**
@@ -106,8 +112,8 @@ return_code add(char * filename, char * comment) {
 		delete_version_file(v.hash); // Elimina el archivo almacenado en el repositorio
 		return VERSION_ERROR;
 	}
-	// Si la operacion es exitosa, retorna VERSION_ADDED
-	return VERSION_ADDED;
+	int es_nuevo_archivo = !file_exists_in_db(filename); // Verificar si el archivo es nuevo en la base de datos
+	return es_nuevo_archivo ? FILE_ADDED : VERSION_ADDED; // Retorna FILE_ADDED si es un nuevo archivo, VERSION_ADDED si es una nueva version de un archivo existente
 }
 
 /**
@@ -321,7 +327,6 @@ int store_file(char * filename, char * hash) {
 	}
 	return copy(filename, dst_filename);
 }
-
 /**
  * @brief Recupera un archivo del repositorio
  * @param hash Hash del archivo
@@ -337,4 +342,19 @@ int retrieve_file(char * hash, char * filename) {
 	}
 	return copy(src_filename, filename);
 }
-
+// Verifica si el archivo ya fue agregado alguna vez (sin importar el hash)
+int file_exists_in_db(char * filename) {
+    FILE *fileDb;
+    file_version r;
+    fileDb = fopen(VERSIONS_DB_PATH, "rb");
+    if(fileDb == NULL) return 0;
+    
+    while(fread(&r, sizeof(r), 1, fileDb)) {
+        if(strcmp(r.filename, filename) == 0) {
+            fclose(fileDb);
+            return 1;  // el archivo ya tiene al menos una version
+        }
+    }
+    fclose(fileDb);
+    return 0;
+}

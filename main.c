@@ -55,6 +55,9 @@ int main(int argc, char *argv[]) {
 			case VERSION_ADDED:
 				printf("Version de %s adicionada al repositorio\n", argv[2]);
 				break;
+			case FILE_ADDED:
+				printf("Archivo %s adicionado al repositorio\n", argv[2]);
+				break;
 			default:	
 			fprintf(stderr, "No se puede adicionar %s\n", argv[2]);
 		}
